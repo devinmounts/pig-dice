@@ -14,7 +14,34 @@
   </head>
 <body>
   <div class="container">
-    <button id="buttonRoll" type="submit" class="btn btn-success">Roll the Dice</button>
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Player 1</h1>
+        <button id="player1Roll" type="submit" class="btn btn-success">Roll the Dice</button>
+        <button id="player1Hold" type="submit" class="btn btn-success">Hold</button>
+        <div class="player2TurnTotal">
+          <h3>Roll:</h3>
+          <span id="showRollPlayer1"></span>
+          <h3>Turn Score:</h3>
+            <span id="showTurnScorePlayer1"></span>
+          <h2>Total:</h2>
+          <span id="showTotalPlayer1"></span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h1>Player 2</h1>
+        <button id="player2Roll" type="submit" class="btn btn-success">Roll the Dice</button>
+        <button id="player2Hold" type="submit" class="btn btn-success">Hold</button>
+        <div class="player2TurnTotal">
+          <h3>Roll:</h3>
+          <span id="showRollPlayer2"></span>
+          <h3>Turn Score</h3>
+            <span id="showTurnScorePlayer2"></span>
+          <h2>Total:</h2>
+          <span id="showTotalPlayer2"></span>
+        </div>
+      </div>
+    </div> <!-- end of row -->
   </div>
 </body>
 </html>

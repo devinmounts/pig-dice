@@ -1,5 +1,3 @@
-var Dave = new Player("Dave")
-
 function Player (turn) {
   this.roll = 0;
   this.turnScore = 0;
@@ -9,7 +7,7 @@ function Player (turn) {
 }
 
 var diceRoll = function(){
-  return Math.floor((Math.random() * 20) + 1);
+  return Math.floor((Math.random() * 6) + 1);
   // return roll
 }
 
@@ -34,12 +32,36 @@ Player.prototype.winner = function() {
 }
 
 $(function(){
-  $("#buttonRoll").click(function(e){
+  var player1 = new Player("Player1")
+  var player2 = new Player("Player2")
+
+  $("#player1Roll").click(function(e){
     e.preventDefault();
-    Dave.roll = diceRoll();
-    Dave.checkRoll();
-    Dave.winner();
-    console.log(Dave);
+    player1.roll = diceRoll();
+    player1.checkRoll();
+    player1.winner();
+    $("#showRollPlayer1").text(player1.roll);
+    $("#showTurnScorePlayer1").text(player1.turnScore);
+  });
+  $("#player1Hold").click(function(e){
+    e.preventDefault();
+    player1.hold()
+    player1.winner()
+    $("#showTotalPlayer1").text(player1.total);
+  });
+  $("#player2Roll").click(function(e){
+    e.preventDefault();
+    player2.roll = diceRoll();
+    player2.checkRoll();
+    player2.winner();
+    $("#showRollPlayer2").text(player2.roll);
+    $("#showTurnScorePlayer2").text(player2.turnScore);
+  });
+  $("#player2Hold").click(function(e){
+    e.preventDefault();
+    player2.hold()
+    player2.winner()
+    $("#showTotalPlayer2").text(player2.total);
   });
 });
 
