@@ -1,10 +1,10 @@
-# Travel Log
+# Pig Dice
 
-#### Epicodus Intro to Programming: Objects and Constructors, 06.11.18
+#### Epicodus Intro to Programming: Pig Dice Objects and Constructors, 06.11.18
 
-#### By Devin Mounts & Kevin Ahn
+#### By Devin Mounts & Matt Smith
 
-## This webpage allows users to enter in information in the form of a travel log. Information to enter is place, date and location.  Places are then shown in a list that can be clicked on to expand the information associated with that travel log entry.
+## This webpage allows players to roll a dice, accumulating points. The player can choose to hold these points, and allow a second player to roll the dice.  The value one clears any points the player has not held, and ends turn.
 
 
 
@@ -19,11 +19,12 @@
 ### Specs
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
-| **Program receives inputted place, date and landmark and returns place in a ul.**| User Input: "Portland, July 1, Voodoo Doughnuts" | Output: "Portland" |
-| **Program allows user to click on ul title to expand information about travel log entry** | Input: "Portland" | Output: "Portland, July 1, Voodoo Doughnuts" |
-| **Program clears input fields** | Input: "Portland" | Output: "" |
-| **Program allows user to click on ul title to expand information about travel log entry** | Input: "Portland" | Output: "Portland, July 1, Voodoo Doughnuts" |
-| **Program allows user to add multiple entries to ul** | Input: "Seattle" | Output: "*Portland, *Seattle" |
+| **Program returns a random number between 1 and 6 when dice is "rolled"**| User Input: "Roll Dice" | Output: "4" |
+| **Program sums values from multiple rolls** | Input: "Roll one: 2,  Roll Two: 5"  | Output: "7" |
+| **Program returns zero when the value one is rolled, and player can no longer roll** | Input: "1" | Output: "0, turn ends" |
+| **Program allows player to hold points from previous rolls, store them as players points and voluntarily ends turn.** | Input: "Roll 1: 3,  Roll 2: 4  Hold" | Output: "7, Turn ends" |
+| **Program allows user to roll a second round, applying previous specifications to the roll and adding any held points to players total** | Input: "Player 1 total: 5  Round 2; Roll 1: 3, Roll 2: 2, Hold" | Output: "Player 1 total: 10" |
+| **Program indicates a winner when the value 100 is reached by player** | Input: "100" | Output: "congratulations!" |
 
 ## Technologies Used
 
@@ -40,4 +41,4 @@
 
 This software is licensed under the MIT license.
 
-Copyright (c) 2018 **Devin Mounts & Kevin Ahn**
+Copyright (c) 2018 **Devin Mounts & Matt Smith**
