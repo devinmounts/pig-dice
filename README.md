@@ -20,7 +20,7 @@
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
 | **Program returns a random number between 1 and 6 when dice is "rolled"**| User Input: "Roll Dice" | Output: "4" |
-| **Program sums values from multiple rolls** | Input: "Roll one: 2,  Roll Two: 5"  | Output: "7" |
+| **If Program rolls from 2 to 6, result is that number. If player rolls 1, result equals 0** | Input: "Roll one: 2,  Roll Two: 1"  | Output: "Roll one: 2, Roll 2: 0" |
 | **Program returns zero when the value one is rolled, and player can no longer roll** | Input: "1" | Output: "0, turn ends" |
 | **Program allows player to hold points from previous rolls, store them as players points and voluntarily ends turn.** | Input: "Roll 1: 3,  Roll 2: 4  Hold" | Output: "7, Turn ends" |
 | **Program allows user to roll a second round, applying previous specifications to the roll and adding any held points to players total** | Input: "Player 1 total: 5  Round 2; Roll 1: 3, Roll 2: 2, Hold" | Output: "Player 1 total: 10" |
