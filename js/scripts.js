@@ -27,7 +27,7 @@ Player.prototype.diceRoll = function() {
 Player.prototype.checkRoll = function() {
   if (this.roll === 1){
     this.turnScore = 0
-    alert("You rolled a 1, " + this.playerName + ", pass the dice.")
+    alert("You rolled a 1, " + this.playerName + ". pass the dice.")
   } else {
     this.turnScore += this.roll
   }
