@@ -41,7 +41,7 @@ Player.prototype.hold = function() {
 }
 
 Player.prototype.winner = function() {
-  if (this.total >= 100) {
+  if (this.total + this.turnScore >= 100) {
   alert(this.playerName + " is the winner!!!!!");
   }
 }
