@@ -6,15 +6,14 @@ function Player (turn) {
   this.playerName;
 }
 
-var diceRoll = function(){
-  return Math.floor((Math.random() * 6) + 1);
-  // return roll
+Player.prototype.diceRoll = function() {
+  this.roll = Math.floor((Math.random() * 6) + 1);
 }
 
 Player.prototype.checkRoll = function() {
   if (this.roll === 1){
     this.turnScore = 0
-  }else {
+  } else {
     this.turnScore += this.roll
   }
 }
@@ -37,7 +36,9 @@ $(function(){
 
   $("#player1Roll").click(function(e){
     e.preventDefault();
-    player1.roll = diceRoll();
+    $("#showRollPlayer1").show();
+    $("#showTurnScorePlayer1").show();
+    player1.diceRoll();
     player1.checkRoll();
     player1.winner();
     $("#showRollPlayer1").text(player1.roll);
@@ -48,10 +49,14 @@ $(function(){
     player1.hold()
     player1.winner()
     $("#showTotalPlayer1").text(player1.total);
+    $("#showRollPlayer1").hide();
+    $("#showTurnScorePlayer1").hide();
   });
   $("#player2Roll").click(function(e){
     e.preventDefault();
-    player2.roll = diceRoll();
+    $("#showRollPlayer2").show();
+    $("#showTurnScorePlayer2").show();
+    player2.diceRoll();
     player2.checkRoll();
     player2.winner();
     $("#showRollPlayer2").text(player2.roll);
@@ -62,6 +67,8 @@ $(function(){
     player2.hold()
     player2.winner()
     $("#showTotalPlayer2").text(player2.total);
+    $("#showRollPlayer2").hide();
+    $("#showTurnScorePlayer2").hide();
   });
 });
 
