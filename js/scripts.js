@@ -10,6 +10,12 @@ Player.prototype.name = function() {
   return this.playerName
 }
 
+Player.prototype.bonus = function() {
+  if (this.playerName.includes("A")) {
+    this.roll = Math.floor((Math.random() * 2) + 1);
+  }
+}
+
 Player.prototype.diceRoll = function() {
   if (this.playerName === "Franz") {
     this.roll = Math.floor((Math.random() * 2) + 1);
@@ -21,7 +27,7 @@ Player.prototype.diceRoll = function() {
 Player.prototype.checkRoll = function() {
   if (this.roll === 1){
     this.turnScore = 0
-    alert("Your turn is over pass the dice.")
+    alert("You rolled a 1, " + this.playerName + ", pass the dice.")
   } else {
     this.turnScore += this.roll
   }
@@ -31,19 +37,12 @@ Player.prototype.hold = function() {
   this.total += this.turnScore;
   this.turnScore = 0;
   this.roll = 0
-  alert("Nice move, pass the dice.");
+  alert("You're a coward, " + this.playerName + ".  Pass the dice.");
 }
-
-// Player.prototype.bonus = function() {
-//   if (this.playername === "Franz"){
-//     console.log(this.playername);
-//     this.roll = 1;
-//   }
-// }
 
 Player.prototype.winner = function() {
   if (this.total >= 100) {
-  alert("Winner!!!!");
+  alert(this.playerName + " is the winner!!!!!");
   }
 }
 
@@ -70,8 +69,8 @@ $(function(){
     e.preventDefault();
     $("#showRollPlayer1").show();
     $("#showTurnScorePlayer1").show();
-    // newPlayer1.bonus();
     newPlayer1.diceRoll();
+    newPlayer1.bonus();
     newPlayer1.checkRoll();
     newPlayer1.winner();
     $("#showRollPlayer1").text(newPlayer1.roll);
@@ -90,6 +89,7 @@ $(function(){
     $("#showRollPlayer2").show();
     $("#showTurnScorePlayer2").show();
     newPlayer2.diceRoll();
+    newPlayer2.bonus();
     newPlayer2.checkRoll();
     newPlayer2.winner();
     $("#showRollPlayer2").text(newPlayer2.roll);
@@ -102,6 +102,7 @@ $(function(){
     $("#showTotalPlayer2").text(newPlayer2.total);
     $("#showRollPlayer2").hide();
     $("#showTurnScorePlayer2").hide();
+
   });
 });
 
