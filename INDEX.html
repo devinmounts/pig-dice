@@ -15,8 +15,8 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
-        <h1>Player 1</h1>
+      <div class="col-md-4">
+        <h1><span id="showName1"></span></h1>
         <button id="player1Roll" type="submit" class="btn btn-success">Roll the Dice</button>
         <button id="player1Hold" type="submit" class="btn btn-success">Hold</button>
         <div class="player2TurnTotal">
@@ -28,8 +28,15 @@
           <span id="showTotalPlayer1"></span>
         </div>
       </div>
-      <div class="col-md-6">
-        <h1>Player 2</h1>
+      <div class="col-md-2">
+        <form>
+          <p>Player 1, enter name: <input id="enterPOne" type="text" name="pOne"></p>
+          <p>Player 2, enter name: <input id="enterPTwo" type="text" name="pTwo"></p>
+        </form>
+        <button id="enter-name" type="submit" value="submit">Submit</button>
+      </div>
+      <div class="col-md-4">
+        <h1><span id="showName2"></span></h1>
         <button id="player2Roll" type="submit" class="btn btn-success">Roll the Dice</button>
         <button id="player2Hold" type="submit" class="btn btn-success">Hold</button>
         <div class="player2TurnTotal">

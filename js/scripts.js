@@ -1,18 +1,27 @@
-function Player (turn) {
+function Player (roll, turnScore, total) {
+  this.playerName;
   this.roll = 0;
   this.turnScore = 0;
   this.total = 0;
-  this.turn = turn;
-  this.playerName;
+  // this.turn = turn;
+
+}
+Player.prototype.name = function() {
+  return this.playerName
 }
 
 Player.prototype.diceRoll = function() {
-  this.roll = Math.floor((Math.random() * 6) + 1);
+  if (this.playerName === "Franz") {
+    this.roll = Math.floor((Math.random() * 2) + 1);
+  } else {
+    this.roll = Math.floor((Math.random() * 6) + 1);
+  }
 }
 
 Player.prototype.checkRoll = function() {
   if (this.roll === 1){
     this.turnScore = 0
+    alert("Your turn is over pass the dice.")
   } else {
     this.turnScore += this.roll
   }
@@ -22,7 +31,15 @@ Player.prototype.hold = function() {
   this.total += this.turnScore;
   this.turnScore = 0;
   this.roll = 0
+  alert("Nice move, pass the dice.");
 }
+
+// Player.prototype.bonus = function() {
+//   if (this.playername === "Franz"){
+//     console.log(this.playername);
+//     this.roll = 1;
+//   }
+// }
 
 Player.prototype.winner = function() {
   if (this.total >= 100) {
@@ -31,24 +48,40 @@ Player.prototype.winner = function() {
 }
 
 $(function(){
-  var player1 = new Player("Player1")
-  var player2 = new Player("Player2")
+
+  var newPlayer1 = new Player();
+  var newPlayer2 = new Player();
+
+  $("#enter-name").click(function(e){
+    e.preventDefault();
+    newPlayer1.playerName = $("#enterPOne").val();
+    newPlayer2.playerName = $("#enterPTwo").val();
+    $("#showName1").text(newPlayer1.name());
+    $("#showName2").text(newPlayer2.name());
+    $("#enterPOne").val("");
+    $("#enterPTwo").val("");
+    // player1Name.push(player1.playerName); //push name into prototype
+    // player2.playerName = player2Name; //push name into prototype
+  });
+
 
   $("#player1Roll").click(function(e){
+
     e.preventDefault();
     $("#showRollPlayer1").show();
     $("#showTurnScorePlayer1").show();
-    player1.diceRoll();
-    player1.checkRoll();
-    player1.winner();
-    $("#showRollPlayer1").text(player1.roll);
-    $("#showTurnScorePlayer1").text(player1.turnScore);
+    // newPlayer1.bonus();
+    newPlayer1.diceRoll();
+    newPlayer1.checkRoll();
+    newPlayer1.winner();
+    $("#showRollPlayer1").text(newPlayer1.roll);
+    $("#showTurnScorePlayer1").text(newPlayer1.turnScore);
   });
   $("#player1Hold").click(function(e){
     e.preventDefault();
-    player1.hold()
-    player1.winner()
-    $("#showTotalPlayer1").text(player1.total);
+    newPlayer1.hold()
+    newPlayer1.winner()
+    $("#showTotalPlayer1").text(newPlayer1.total);
     $("#showRollPlayer1").hide();
     $("#showTurnScorePlayer1").hide();
   });
@@ -56,17 +89,17 @@ $(function(){
     e.preventDefault();
     $("#showRollPlayer2").show();
     $("#showTurnScorePlayer2").show();
-    player2.diceRoll();
-    player2.checkRoll();
-    player2.winner();
-    $("#showRollPlayer2").text(player2.roll);
-    $("#showTurnScorePlayer2").text(player2.turnScore);
+    newPlayer2.diceRoll();
+    newPlayer2.checkRoll();
+    newPlayer2.winner();
+    $("#showRollPlayer2").text(newPlayer2.roll);
+    $("#showTurnScorePlayer2").text(newPlayer2.turnScore);
   });
   $("#player2Hold").click(function(e){
     e.preventDefault();
-    player2.hold()
-    player2.winner()
-    $("#showTotalPlayer2").text(player2.total);
+    newPlayer2.hold()
+    newPlayer2.winner()
+    $("#showTotalPlayer2").text(newPlayer2.total);
     $("#showRollPlayer2").hide();
     $("#showTurnScorePlayer2").hide();
   });
@@ -82,8 +115,8 @@ $(function(){
 
 
 
-
-
+//
+//
 
 
 
